@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta name="author" content="王治锋">
+  <link rel="shortcut icon" href="../../../img/favicon.ico">
+  <title>Docker 18.06安装手册 - 王治锋的麦文</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/highlight.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Docker 18.06\u5b89\u88c5\u624b\u518c";
+    var mkdocs_page_input_path = "cloud/docker/docker-setup.md";
+    var mkdocs_page_url = "/cloud/docker/docker-setup/";
+  </script>
+  
+  <script src="../../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../../js/highlight.pack.js"></script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../../.." class="icon icon-home"> 王治锋的麦文</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">大数据</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../../bigdata/hdfs/hdfs-setup/">HDFS 安装</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../bigdata/hdfs/hdfs-dev/">HDFS 开发</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../bigdata/hdfs/hdfs-ops/">HDFS 操作</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../bigdata/hbase/hbase-setup/">HBase 安装</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../bigdata/hbase/hbase-dev/">HBase 开发</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../bigdata/hbase/hbase-ops/">HBase 操作</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../bigdata/hive/hive-setup/">Hive 安装</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../bigdata/hive/hive-dev/">Hive 开发</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../bigdata/hive/hive-ops/">Hive 操作</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../bigdata/mr/mr-setup/">MR 安装</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../bigdata/mr/mr-dev/">MR 开发</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../bigdata/mr/mr-ops/">MR 操作</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../bigdata/kafka/kafka-setup/">Kafka 安装</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../bigdata/storm/storm-setup/">Storm 安装</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../bigdata/redis/redis-setup/">Redis 安装</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">AI</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../../ai/tf/tf-setup/">Tensorflow 安装</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../ai/fi/fi-setup/">Faceimage 安装</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">云计算</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../openstack/openstack-ready/">OpenStack 安装(一)</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../openstack/openstack-db/">OpenStack 安装(二)</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../openstack/openstack-rabbitmq/">OpenStack 安装(三)</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../openstack/openstack-memcached/">OpenStack 安装(四)</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../openstack/openstack-dashboard/">OpenStack 安装(五)</a>
+                </li>
+                <li class=" current">
+                    
+    <a class="current" href="./">Docker 18.06安装手册</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#docker-ce-1806">Docker-CE 18.06 安装手册</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#_1">简介</a></li>
+        
+            <li><a class="toctree-l4" href="#_2">安装准备</a></li>
+        
+            <li><a class="toctree-l4" href="#_3">修改配置文件</a></li>
+        
+            <li><a class="toctree-l4" href="#_4">重启服务</a></li>
+        
+            <li><a class="toctree-l4" href="#_5">环境验证</a></li>
+        
+        </ul>
+    
+
+    </ul>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../docker-registry-setup/">Docker 仓库2.0 安装</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../docker-harbor-setup/">Docker Harbor 安装</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../ceph/ceph-setup/">Ceph 安装</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../ceph/ceph-command/">Ceph 命令</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../ceph/ceph-principle/">Ceph 原理</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">云猎场</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../../career/bigdata/architect/">大数据架构师</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">云图谱</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../../tool/cloudatlas/apache-setup/">Apache 安装</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../tool/cloudatlas/python-setup/">python 安装</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../tool/cloudatlas/apache-ssl/">Apache 配置ssl</a>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../..">王治锋的麦文</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>云计算 &raquo;</li>
+        
+      
+    
+    <li>Docker 18.06安装手册</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="docker-ce-1806">Docker-CE 18.06 安装手册</h1>
+<h2 id="_1">简介</h2>
+<p>容器化基础环境。</p>
+<h2 id="_2">安装准备</h2>
+<pre><code> $ curl https://releases.rancher.com/install-docker/18.06.sh | sh
+</code></pre>
+
+<h2 id="_3">修改配置文件</h2>
+<pre><code> 文件名：/usr/lib/systemd/system/docker.service
+ [Unit]
+ Description=Docker Application Container Engine
+ Documentation=https://docs.docker.com
+ After=network-online.target firewalld.service
+ Wants=network-online.target
+
+ [Service]
+ Type=notify
+ #ExecStart=/usr/bin/dockerd --tls=true --tlsverify --tlscacert=/data/cert/ca.crt --tlscert=/data/cert/server.crt --tlskey=/data/cert/server.key -H tcp://172.26.130.100:2376 --storage-driver=overlay2 --storage-opt overlay2.override_kernel_check=true --exec-opt native.cgroupdriver=cgroupfs
+ ExecStart=/usr/bin/dockerd -g /app/docker/daemon  --insecure-registry 172.16.0.4:5000 -H unix:///var/run/docker.sock -H tcp://172.16.0.4:2375 --storage-driver=overlay2 --storage-opt overlay2.override_kernel_check=true --exec-opt native.cgroupdriver=cgroupfs
+ LimitNOFILE=infinity
+ ExecReload=/bin/kill -s HUP $MAINPID
+ LimitNPROC=infinity
+ LimitCORE=infinity
+ #TasksMax=infinity
+ TimeoutStartSec=0
+ Delegate=yes
+ KillMode=process
+ Restart=on-failure
+ StartLimitBurst=3
+ StartLimitInterval=60s
+
+ [Install]
+ WantedBy=multi-user.target
+</code></pre>
+
+<h2 id="_4">重启服务</h2>
+<pre><code> $ systemctl daemon-reload
+ $ systemctl restart docker
+</code></pre>
+
+<h2 id="_5">环境验证</h2>
+<ul>
+<li>查看docker info</li>
+</ul>
+<pre><code>$ docker info
+
+ Containers: 0
+ Running: 0
+ Paused: 0
+ Stopped: 0
+ Images: 1
+ Server Version: 18.06.1-ce
+ Storage Driver: overlay2
+  Backing Filesystem: extfs
+  Supports d_type: true
+  Native Overlay Diff: true
+ Logging Driver: json-file
+ Cgroup Driver: cgroupfs
+ Plugins:
+  Volume: local
+  Network: bridge host macvlan null overlay
+  Log: awslogs fluentd gcplogs gelf journald json-file logentries splunk syslog
+ Swarm: inactive
+ Runtimes: runc
+ Default Runtime: runc
+ Init Binary: docker-init
+ containerd version: 468a545b9edcd5932818eb9de8e72413e616e86e
+ runc version: 69663f0bd4b60df09991c08812a60108003fa340
+ init version: fec3683
+ Security Options:
+  seccomp
+   Profile: default
+ Kernel Version: 3.10.0-862.11.6.el7.x86_64
+ Operating System: CentOS Linux 7 (Core)
+ OSType: linux
+ Architecture: x86_64
+ CPUs: 1
+ Total Memory: 1.936GiB
+ Name: abner-dudu
+ ID: 3EOI:SL2X:HVTK:D5YM:7WXX:2ZZF:OMOU:EAYU:XJRV:E3KQ:YJAH:6FW6
+ Docker Root Dir: /app/docker/daemon
+ Debug Mode (client): false
+ Debug Mode (server): false
+ Registry: https://index.docker.io/v1/
+ Labels:
+ Experimental: false
+ Insecure Registries:
+  172.16.0.4:5000
+  127.0.0.0/8
+ Live Restore Enabled: false
+
+ WARNING: bridge-nf-call-iptables is disabled
+ WARNING: bridge-nf-call-ip6tables is disabled
+</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../docker-registry-setup/" class="btn btn-neutral float-right" title="Docker 仓库2.0 安装">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../../openstack/openstack-dashboard/" class="btn btn-neutral" title="OpenStack 安装(五)"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../../openstack/openstack-dashboard/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../docker-registry-setup/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '../../..';</script>
+    <script src="../../../js/theme.js"></script>
+      <script src="../../../search/require.js"></script>
+      <script src="../../../search/search.js"></script>
+
+</body>
+</html>
